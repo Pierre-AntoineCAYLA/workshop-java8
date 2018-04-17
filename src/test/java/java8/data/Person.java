@@ -4,7 +4,7 @@ public class Person {
 
     private String firstname;
     private String lastname;
-    private Integer age;
+    private static Integer age;
     private String password;
 
     public Person() {
@@ -33,7 +33,7 @@ public class Person {
         this.lastname = lastname;
     }
 
-    public Integer getAge() {
+    public static Integer getAge() {
         return age;
     }
 
