@@ -48,7 +48,6 @@ public class Lambda_01_Test {
     @Test
     public void test_filter_by_age() throws Exception {
 
-    	boolean predicate=false;
         List<Person> personList = Data.buildPersonList(100);
         
         // result ne doit contenir que des personnes adultes (age >= 18)
