@@ -7,9 +7,6 @@ public class Person {
     private Integer age;
     private String password;
 
-    public Person() {
-    }
-
     public Person(String firstname, String lastname, Integer age, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
