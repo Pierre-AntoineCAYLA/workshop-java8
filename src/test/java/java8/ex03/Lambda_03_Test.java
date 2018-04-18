@@ -2,8 +2,6 @@ package java8.ex03;
 
 import java8.data.Data;
 import java8.data.Person;
-
-import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 
 import java.util.List;
