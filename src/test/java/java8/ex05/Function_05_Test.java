@@ -6,9 +6,7 @@ import org.junit.Test;
 
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Predicate;
 
-import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 /**
