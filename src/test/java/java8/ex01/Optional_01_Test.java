@@ -39,10 +39,14 @@ public class Optional_01_Test {
     public void test_optional_found() throws Exception {
 
         List<Person> personList = Data.buildPersonList(100);
-
+        
         // TODO invoquer la méthode find(List<T> list, Predicate<T> predicate)
         // TODO age == 10
-        Optional<Person> result = null;
+        Predicate<Person> adult = person->{ 
+	    return person.getAge()==10;  
+        }; 
+        
+        Optional<Person> result = Optional.of(find(personList, adult));
 
         assertThat(result, instanceOf(Optional.class));
         assertThat(result.isPresent(), is(true));
@@ -59,7 +63,12 @@ public class Optional_01_Test {
 
         // TODO invoquer la méthode find(List<T> list, Predicate<T> predicate)
         // TODO age == 400
-        Optional<Person> result = null;
+        Predicate<Person> adult = person->{ 
+    	    return person.getAge()==400;  
+            }; 
+            
+            Optional<Person> result = Optional.ofNullable(find(personList, adult));
+
 
         assertThat(result, instanceOf(Optional.class));
         assertThat(result.isPresent(), is(false));
@@ -73,9 +82,14 @@ public class Optional_01_Test {
 
         // TODO invoquer la méthode find(List<T> list, Predicate<T> predicate)
         // TODO age == 10 et firstname == "last_10"
-        Optional<Person> result = null;
+        Predicate<Person> adult = person->{ 
+    	    return person.getAge()==10 && person.getFirstname().equals("last_10");  
+            }; 
+            
+            Optional<Person> result = Optional.ofNullable(find(personList, adult));
 
         // TODO Utiliser la méthode orElseThrow pour déclencher l'exception NotFountException si non trouvé
+           result.orElseThrow(()-> new NotFountException());
     }
 
     @Test
@@ -90,7 +104,12 @@ public class Optional_01_Test {
 
         // TODO invoquer la méthode find(List<T> list, Predicate<T> predicate, T defaultValue)
         // TODO predicate => age == 400
-        Person result = null;
+        Predicate<Person> adult = person->{ 
+    	    return person.getAge()==400 && person.getFirstname().equals("last_10");  
+            }; 
+            
+            Optional<Person> result = Optional.of(find(personList, adult));
+
 
         assertThat(result, notNullValue());
         assertThat(result, hasProperty("firstname", is("DEFAULT")));
